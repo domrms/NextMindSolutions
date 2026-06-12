@@ -36,22 +36,23 @@ O grande gargalo que impedia a expansão de mercado da distribuidora era a sua i
 
 Para solucionar os gargalos operacionais sem desumanizar o atendimento comercial — que é o grande diferencial competitivo da distribuidora —, a NextMind Solutions projetou e arquitetou o **SmartWholesale AI**. Esta solução redefine a dinâmica de trabalho adotando o princípio da **Sinergia Colaborativa entre Humanos e Inteligência Artificial**.
 
-+------------------------------------------------------------------------+
-|                          SMARTWHOLESALE AI                             |
-+------------------------------------------------------------------------+
-|                                                                        |
-|  +--------------------------------+    +----------------------------+  |
-|  |     TRABALHO PESADO (IA)       |    | TRABALHO DE VALOR (HUMANO) |  |
-|  +--------------------------------+    +----------------------------+  |
-|  | * Consultas automáticas de     |    | * Negociações complexas e  |  |
-|  |   estoque e conciliação.       |===>|   fechamento de contratos. |  |
-|  | * Análise preditiva de compras |    | * Gestão de exceções e     |  |
-|  |   em tempo real (Insights).    |    |   pedidos especiais.       |  |
-|  | * Emissão de alertas ativos    |    | * Relacionamento consultivo|  |
-|  |   de quebra de inventário.     |    |   e fidelização de clientes|  |
-|  +--------------------------------+    +----------------------------+  |
-|                                                                        |
-+------------------------------------------------------------------------+
+```mermaid
+flowchart LR
+
+    subgraph IA["TRABALHO PESADO (IA)"]
+        A1["Consultas automáticas de estoque e conciliação"]
+        A2["Análise preditiva de compras em tempo real"]
+        A3["Alertas ativos de quebra de inventário"]
+    end
+
+    subgraph HUMANO["TRABALHO DE VALOR (HUMANO)"]
+        B1["Negociações complexas e fechamento de contratos"]
+        B2["Gestão de exceções e pedidos especiais"]
+        B3["Relacionamento consultivo e fidelização de clientes"]
+    end
+
+    IA --> HUMANO
+```
 
 ### 2.1 Divisão de Responsabilidades na Arquitetura Inteligente
 
@@ -131,8 +132,10 @@ cd meu-projeto-smartwholesale
 ```
 
 ### 🔄 5.4 Comandos de Auto-Gerenciamento e Atualização
+
 A CLI possui comandos integrados para verificar a existência de atualizações ou gerenciar versões instaladas localmente sem impactar outros ambientes do sistema:
 
+```bash
 # Executa uma checagem em modo leitura para verificar se há uma versão mais recente (não altera arquivos)
 specify self check
 
@@ -144,8 +147,9 @@ specify self upgrade
 
 # Força a instalação ou realiza o downgrade/upgrade fixando uma tag específica do repositório
 specify self upgrade --tag vX.Y.Z
+```
 
-Nota técnica: O comando specify self upgrade detecta automaticamente se a instalação original foi feita via uv tool ou pipx, executando a reconfiguração de forma transparente sob o capô. Caso precise limitar o tempo de execução do subprocesso do instalador em conexões lentas, você pode configurar a variável de ambiente SPECIFY_UPGRADE_TIMEOUT_SECS com o limite desejado em segundos.
+> **Nota técnica:** O comando `specify self upgrade` detecta automaticamente se a instalação original foi feita via `uv tool` ou `pipx`, executando a reconfiguração de forma transparente. Caso precise limitar o tempo de execução do subprocesso do instalador em conexões lentas, configure a variável de ambiente `SPECIFY_UPGRADE_TIMEOUT_SECS` com o limite desejado em segundos.
 
 ### 🚀 5.5 Ciclo de Desenvolvimento Prático (Passo a Passo)
 Uma vez que o projeto está inicializado, a interação com o motor do spec-kit ocorre diretamente por meio de agentes de codificação ou via comandos especializados da CLI. Veja como executar as etapas do ciclo completo:
