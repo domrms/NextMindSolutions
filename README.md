@@ -122,13 +122,15 @@ Execute o comando abaixo para instalar globalmente a ferramenta de linha de coma
 uv tool install specify-cli --from git+[https://github.com/github/spec-kit.git@vX.Y.Z](https://github.com/github/spec-kit.git@vX.Y.Z)
 ```
 
-📁 5.3 Inicialização de um Novo Projeto
+### 📁 5.3 Inicialização de um Novo Projeto
 Navegue até o diretório onde deseja criar a estrutura e execute o comando de inicialização informando o nome do projeto e a integração desejada (ex: GitHub Copilot):
 
+```bash
 specify init meu-projeto-smartwholesale --integration copilot
 cd meu-projeto-smartwholesale
+```
 
-🔄 5.4 Comandos de Auto-Gerenciamento e Atualização
+### 🔄 5.4 Comandos de Auto-Gerenciamento e Atualização
 A CLI possui comandos integrados para verificar a existência de atualizações ou gerenciar versões instaladas localmente sem impactar outros ambientes do sistema:
 
 # Executa uma checagem em modo leitura para verificar se há uma versão mais recente (não altera arquivos)
@@ -145,7 +147,7 @@ specify self upgrade --tag vX.Y.Z
 
 Nota técnica: O comando specify self upgrade detecta automaticamente se a instalação original foi feita via uv tool ou pipx, executando a reconfiguração de forma transparente sob o capô. Caso precise limitar o tempo de execução do subprocesso do instalador em conexões lentas, você pode configurar a variável de ambiente SPECIFY_UPGRADE_TIMEOUT_SECS com o limite desejado em segundos.
 
-🚀 5.5 Ciclo de Desenvolvimento Prático (Passo a Passo)
+### 🚀 5.5 Ciclo de Desenvolvimento Prático (Passo a Passo)
 Uma vez que o projeto está inicializado, a interação com o motor do spec-kit ocorre diretamente por meio de agentes de codificação ou via comandos especializados da CLI. Veja como executar as etapas do ciclo completo:
 
 Passo 1: Estabelecer os Princípios de Engenharia (constitution)
@@ -155,23 +157,30 @@ Abra a sua ferramenta de IA de preferência ou utilize os comandos integrados da
 Passo 2: Redigir as Especificações Funcionais (specify)
 Descreva o comportamento funcional e o valor de negócio do caso de uso que deseja construir, focando exclusivamente no o que a funcionalidade deve fazer e no porquê, sem se prender à codificação pura:
 
-Bash
+```bash
 /speckit.specify Construir um módulo de gerenciamento de estoque que controle a entrada e saída de insumos. O sistema deve emitir um alerta visual na tela caso o saldo do item atinja o estoque mínimo e deve impedir movimentações de saída que resultem em saldo negativo.
 Passo 3: Criar o Plano Técnico de Implementação (plan)
 Nesta etapa, instrua o assistente técnico informando os detalhes da pilha de tecnologia e escolhas estruturais de software para que ele elabore o plano arquitetural:
 
-Bash
+```
+
+```bash
 /speckit.plan A aplicação backend deve utilizar .NET 10 Web API estruturada com Clean Architecture. O mapeamento objeto-relacional deve ser feito via Entity Framework Core apontando para um banco de dados relacional PostgreSQL local. Nenhuma persistência externa ou em nuvem deve ser configurada nesta fase.
 Passo 4: Decompor o Plano em Tarefas Técnicas (tasks)
 Com o plano técnico aprovado, solicite ao motor que quebre a arquitetura desenhada em tarefas granulares, sequenciais e acionáveis para o time ou para o agente automatizado:
 
-Bash
+```
+
+```bash
 /speckit.tasks
 Passo 5: Executar a Implementação de Código (implement)
 Com a lista de tarefas devidamente estruturada e validada pelos arquitetos humanos, ordene a geração automatizada de código para implementar a funcionalidade de forma limpa e em total conformidade com a Constituição do projeto:
 
-Bash
-/speckit.implement
+```
 
-🎯 6. Conclusão
+```bash
+/speckit.implement
+```
+
+## 🎯 6. Conclusão
 O ecossistema SmartWholesale AI demonstra de forma empírica que a modernização de sistemas legados de missão crítica não precisa ser um processo traumático ou propenso a falhas catastróficas. Ao adotar o Spec-Driven Development por meio do spec-kit, a consultoria NextMind Solutions conseguiu criar uma ponte robusta entre as regras de negócio de 15 anos e os padrões arquiteturais de ponta do .NET 10. A automação cognitiva liberou o elemento humano para focar no que realmente gera valor: a estratégia comercial e a excelência operacional.
